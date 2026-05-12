@@ -1,0 +1,17 @@
+[package]
+name = "oh-regex-jsonrpc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+regex = "1"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+anyhow = "1"
+
+[profile.release]
+lto = true          # Link Time Optimization
+codegen-units = 1   # 减少生成单元，提高优化空间
+opt-level = "z"     # "z" 优化体积，"s" 优化大小，默认 "3" 优化速度
