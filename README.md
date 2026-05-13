@@ -11,7 +11,7 @@
 
 输出：
 ```
-{"jsonrpc":"2.0","id":1,"result":{"matched":true,"result":{"End":6,"Start":3,"Text":"123"},"highlight":"abc<code>123</code>xyz"}}```
+{"jsonrpc":"2.0","id":1,"result":{"matched":true,"result":{"End":6,"Start":3,"Text":"123"},"highlight":"abc<code>123</code>xyz"}}
 ```
 
 ## Methods:
