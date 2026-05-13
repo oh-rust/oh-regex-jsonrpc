@@ -1,4 +1,5 @@
 use crate::protocol::*;
+use crate::utils::highlight::build;
 use anyhow::Result;
 use regex::Regex;
 use serde_json::json;
@@ -6,6 +7,7 @@ use serde_json::json;
 pub fn handle(re: &Regex, params: &Params) -> Result<ResponseData> {
     Ok(ResponseData {
         matched: re.is_match(&params.test_content),
+        highlight: Some(build(re, &params.test_content)),
         result: json!({}),
     })
 }

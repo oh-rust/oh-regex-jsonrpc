@@ -35,8 +35,13 @@ pub struct RpcResponse {
 
 #[derive(Serialize)]
 pub struct ResponseData {
+    #[serde(default)]
     pub matched: bool,
+
     pub result: Value,
+
+    #[serde(default)]
+    pub highlight: Option<String>, // 高亮文本
 }
 
 #[derive(Serialize)]

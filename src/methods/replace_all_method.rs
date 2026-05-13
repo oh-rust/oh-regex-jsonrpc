@@ -1,4 +1,5 @@
 use crate::protocol::*;
+use crate::utils::highlight::build;
 use anyhow::Result;
 use regex::Regex;
 use serde_json::json;
@@ -7,7 +8,8 @@ pub fn handle(re: &Regex, params: &Params) -> Result<ResponseData> {
     let s = re.replace_all(&params.test_content, &params.replacement);
 
     Ok(ResponseData {
-        matched: true,
+        matched: re.is_match(&params.test_content),
+        highlight: Some(build(re, &params.test_content)),
         result: json!({
             "Text": s.to_string()
         }),
